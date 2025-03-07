@@ -1,0 +1,10 @@
+1. Import openCV model in python, load images, display, save and get the image dimensions.
+2. Convert color image to grayscale. Display the change in dimensions between grayscale and color
+3. View individual channels of RGB image.
+4. Perform image translations, rotations and flipping.
+5. Resize and scale images. Show the cropping of images.
+6. Convert a gray scale image into binary image without using bultin functions
+7. Find the complement of a grayscale image and color image.
+8. Manipulate color spaces such as RGB, HSV and LAB
+9. Split and merge color channels in openCV
+10. View individual channels in openCV.
