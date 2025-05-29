@@ -1,3 +1,8 @@
 AI sem II.code-workspace
 mvprlab/*
 semII_study/*
+latex documents/*.aux
+latex documents/*.fdb_latexmk
+latex documents/*.fls
+latex documents/*.log
+latex documents/*.synctex.gz
