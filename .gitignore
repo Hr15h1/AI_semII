@@ -6,3 +6,7 @@ latex documents/*.fdb_latexmk
 latex documents/*.fls
 latex documents/*.log
 latex documents/*.synctex.gz
+train/*
+valid/*
+testrun.ipynb
+image_cropper.ipynb
