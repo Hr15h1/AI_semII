@@ -10,3 +10,9 @@ train/*
 valid/*
 testrun.ipynb
 image_cropper.ipynb
+datasets/butterflies/*
+datasets/ORL_dataset/*
+datasets/test/*
+datasets/train/*
+
+
