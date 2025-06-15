@@ -14,5 +14,8 @@ datasets/butterflies/*
 datasets/ORL_dataset/*
 datasets/test/*
 datasets/train/*
+mllab/*
 
 
+datasets/archive (19).zip
+lab_cycle_II/cufile.log
