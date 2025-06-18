@@ -11,7 +11,9 @@ valid/*
 testrun.ipynb
 image_cropper.ipynb
 datasets/butterflies/*
+datasets/fruits/*
 datasets/ORL_dataset/*
+datasets/iris/*
 datasets/test/*
 datasets/train/*
 mllab/*
@@ -19,3 +21,5 @@ mllab/*
 
 datasets/archive (19).zip
 lab_cycle_II/cufile.log
+datasets/mnist_test.csv
+datasets/mnist_train.csv
