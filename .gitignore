@@ -1,11 +1,11 @@
 AI sem II.code-workspace
 mvprlab/*
 semII_study/*
-latex documents/*.aux
-latex documents/*.fdb_latexmk
-latex documents/*.fls
-latex documents/*.log
-latex documents/*.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
 train/*
 valid/*
 testrun.ipynb
