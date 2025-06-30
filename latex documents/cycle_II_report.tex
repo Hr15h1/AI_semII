@@ -1,5 +1,6 @@
 % filepath: /home/hrishikesh/Desktop/AI_semII/lab_report_cycle_II.tex
 \documentclass[a4paper,12pt]{article}
+\usepackage[colorlinks=true, linkcolor=black, linktoc=all, pdfstartview=FitH]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lipsum}
@@ -10,41 +11,44 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{array}
 
-% Page geometry and shifting
+
+
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \newcommand{\oddshift}{\hspace*{-1cm}}
 \newcommand{\evenshift}{\hspace*{1cm}}
 
-% Fancyhdr for footer
+\pagenumbering{gobble}
 \setlength{\footskip}{30pt}
 \pagestyle{fancy}
-\fancyhf{}  % clear all headers and footers
+\fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\arraystretch}{1.5}
 
 \fancyfoot[C]{
   \begin{minipage}{\textwidth}
-    \centering
     \rule{\textwidth}{1.5pt}\\
     Pattern Recognition Laboratory
   \end{minipage}
 }
 \fancyfoot[R]{\thepage}
 
-% Shift content on odd/even pages
+
 \makeatletter
 \patchcmd{\@outputpage@head}{\box\@outputbox}{%
   \ifodd\value{page}\oddshift\else\evenshift\fi\box\@outputbox
 }{}{}
 \makeatother
 
-% Section formatting
+
 \titleformat{\section}
   {\normalfont\Large\bfseries\centering}{\thesection}{1em}{}
 \titleformat{\subsection}
   {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
-% Listings for code
+
 \lstset{
   basicstyle=\ttfamily\small,
   frame=single,
@@ -54,47 +58,98 @@
 
 \begin{document}
 
+\thispagestyle{empty}
 
-% Index/Table of Contents
-\section*{Index}
-\begin{longtable}{|c|p{9cm}|c|}
+\begin{center}
+  \textbf{\fontsize{15}{15}\selectfont SECOND SEMESTER M.Sc COMPUTER SCIENCE WITH}
+  \vspace{1em}
+  \textbf{\fontsize{15}{15}\selectfont SPECIALIZATION IN ARTIFICIAL INTELLIGENCE}
+  \vspace{6em}\\
+  \textbf{\large (2024 - 2026 BATCH)}
+  \vspace{1em}\\
+  \textbf{\large LAB RECORD}
+  \vspace{1em}\\
+  \textbf{\large CAI-CC-524 PATTERN RECOGNITION LABORATORY}
+  \vspace{6em}\\
+  \textbf{\textit{\small Submitted to the University of Kerala in partial fulfilment of the requirement for the award of the degree of Master of Science in Computer Science (with Specialization in Artificial Intelligence)}}
+  \vspace{3em}\\
+
+  \begin{center}
+    \includegraphics[width=0.27\textwidth]{University_of_Kerala.png}
+  \end{center}
+
+  \vspace{3em}
+  \textbf{\textit{\small Submitted By}}
+  \vspace{1em}\\
+  \textbf{\fontsize{15}{15}\selectfont Hrishikesh M Jayakrishnan}
+  \vspace{1em}\\
+  \textbf{\fontsize{15}{15}\selectfont 97424607010}
+  \vspace{3em}\\
+  \textbf{\textit{\small Department of Computer Science,}}
+  \vspace{1em}\\
+  \textbf{\textit{\small University of Kerala, Kariavattom,}}
+  \vspace{1em}\\
+  \textbf{\textit{\small Thiruvananthapuram, Kerala, 695581}}
+
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+\section*{\underline{Index}}
+\begin{longtable}{|c|p{11cm}|c|} 
 \hline
 \textbf{Sl No} & \textbf{Name of the program} & \textbf{Page No} \\
 \hline
-1 & [Program Name 1] & \pageref{exp1} \\
-2 & [Program Name 2] & \pageref{exp2} \\
-3 & [Program Name 3] & \pageref{exp3} \\
-% ... Add more as needed ...
+1 & LDA for dimensionality reduction & \pageref{exp1} \\
+\hline
+2 & PCA for dimensionality reduction and KNN & \pageref{exp2} \\
+\hline
+3 & PCA on Iris dataset & \pageref{exp3} \\
+\hline
+4 & Euclidean distance between two grayscale images & \pageref{exp4} \\
+\hline
+5 & PCA vs LDA on MNIST dataset & \pageref{exp5} \\
+\hline
+6 & Implementing distance metrics on image dataset & \pageref{exp6} \\ 
+\hline
+7 & Operations on fuzzy sets and De Morgan's Law & \pageref{exp7} \\
+\hline
+8 & Membership functions using NumPy & \pageref{exp8} \\
+\hline
+9 & Fuzzification of input temperature values & \pageref{exp9} \\
+\hline
+10 & Comparison of different defuzzification methods & \pageref{exp10} \\
+\hline
+11 & Calculate value functions for a given Markov Decision Process & \pageref{exp11} \\
 \hline
 \end{longtable}
 \newpage
 
-% --- Experiment 1 Example ---
-\section*{Cycle II}
+\pagenumbering{arabic}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 1}
+\textbf{\underline{Experiment 1}}
 \label{exp1}
+
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Apply LDA for dimensionality reduction and any classifier for face recognition on the ORL dataset and analyze the performance.\par
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Apply LDA for dimensionality reduction and any classifier for face recognition on the ORL dataset and analyze the performance.\par
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To implement LDA for dimensionality reduction and evaluate its effectiveness in improving the performance of a face recognition classifier on the ORL dataset.
 
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import os
 import cv2
@@ -352,9 +407,9 @@ plt.title("Confusion Matrix for SVM Model without LDA")
   \includegraphics[width=0.8\textwidth]{output_05.png}
 \end{center}
 
-
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 from sklearn.datasets import fetch_olivetti_faces
@@ -413,80 +468,43 @@ plt.show()
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI generated code uses the built-in fetch\_olivetti\_faces function from scikit-learn to directly load the ORL dataset, while the code I have written manually loads images from a local directory, flattens them, and organizes them into training and testing folders. The manual approach gives more control over data preprocessing and file management.
     \item Both codes apply Linear Discriminant Analysis (LDA) for dimensionality reduction and use a linear SVM for classification. However, the code I have written goes a step further by also training and evaluating an SVM on the original (non-LDA) features, showing a comparison of performance with and without LDA.
 \end{itemize}
-
-\textbf{Results}
-\begin{lstlisting}[language=Python]
-downloading Olivetti faces from https://ndownloader.figshare.com/files/5976027 to /home/hrishikesh/scikit_learn_data
-Dataset shape: (400, 4096), Labels shape: (400,)
-LDA-transformed shape: (280, 39)
-
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       1.00      1.00      1.00         3
-           1       1.00      1.00      1.00         3
-           2       1.00      1.00      1.00         3
-           3       1.00      1.00      1.00         3
-           4       1.00      1.00      1.00         3
-           5       1.00      1.00      1.00         3
-           6       1.00      1.00      1.00         3
-           7       1.00      1.00      1.00         3
-           8       1.00      1.00      1.00         3
-           9       1.00      0.67      0.80         3
-          10       1.00      1.00      1.00         3
-          11       1.00      1.00      1.00         3
-          12       1.00      1.00      1.00         3
-          13       1.00      1.00      1.00         3
-          14       1.00      1.00      1.00         3
-          15       1.00      1.00      1.00         3
-          16       1.00      1.00      1.00         3
-          17       1.00      1.00      1.00         3
-...
-   macro avg       0.99      0.98      0.98       120
-weighted avg       0.99      0.98      0.98       120
-
-Accuracy Score: 0.9833333333333333
-
-\end{lstlisting}
-
-\textbf{Verified By}
-
-
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 2}
+\textbf{\underline{Experiment 2}}
 \label{exp2}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Use PCA to reduce the dimensionality of an image dataset and apply KNN for classification\par
-}
-
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Use PCA to reduce the dimensionality of an image dataset and apply KNN for classification\par
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To use PCA for reducing the dimensionality of an image dataset and apply KNN for classification, including data preprocessing, feature reduction, model training, and performance evaluation.
 
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import cupy as cp
 from cuml.decomposition import PCA
@@ -645,8 +663,9 @@ weighted avg       0.96      0.96      0.96     10000
 \end{lstlisting}
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 from sklearn.datasets import fetch_olivetti_faces
@@ -705,83 +724,45 @@ plt.show()
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI generated code has used sklearn which is a cpu based library compared to the code I have written which uses cuml, a GPU accelerated library.
     \item Both follow the same workflow—data preprocessing, PCA, KNN classification, and evaluation—but differ in dataset
 \end{itemize}
 \vspace{1em}
-
-\textbf{Results}
-
-\begin{lstlisting}[language=Python]
-Dataset shape: (400, 4096), Number of classes: 40
-PCA-reduced shape: (280, 100)
-
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.50      0.33      0.40         3
-           1       1.00      0.67      0.80         3
-           2       1.00      0.67      0.80         3
-           3       1.00      0.33      0.50         3
-           4       0.40      0.67      0.50         3
-           5       0.50      1.00      0.67         3
-           6       1.00      1.00      1.00         3
-           7       1.00      0.33      0.50         3
-           8       1.00      1.00      1.00         3
-           9       1.00      0.67      0.80         3
-          10       1.00      1.00      1.00         3
-          11       1.00      0.67      0.80         3
-          12       1.00      0.33      0.50         3
-          13       1.00      1.00      1.00         3
-          14       0.30      1.00      0.46         3
-          15       0.00      0.00      0.00         3
-          16       1.00      0.33      0.50         3
-          17       0.67      0.67      0.67         3
-          18       1.00      1.00      1.00         3
-...
-   macro avg       0.76      0.69      0.67       120
-weighted avg       0.76      0.69      0.67       120
-
-Accuracy: 0.6916666666666667
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_06.png}
-\end{center}
-
-\textbf{Verified By}
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 3}
+\textbf{\underline{Experiment 3}}
 \label{exp3}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Perform exploratory data analysis (EDA) on Iris dataset to understand its structure. Apply Principal Component Analysis (PCA) for dimensionality reduction. Visualize the transformed dataset and analyze the effectiveness of PCA in reducing the dimensions.\par
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Perform exploratory data analysis (EDA) on Iris dataset to understand its structure. Apply Principal Component Analysis (PCA) for dimensionality reduction. Visualize the transformed dataset and analyze the effectiveness of PCA in reducing the dimensions.\par
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To explore the Iris dataset and apply PCA for dimensionality reduction, followed by visualization and analysis of the transformed data to assess PCA’s effectiveness.
 
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -1009,8 +990,9 @@ Iris-versicolor       1.00      1.00      1.00         9
 
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 import pandas as pd
@@ -1113,104 +1095,45 @@ print("\nCumulative Variance (first 2 PCs): {:.2f}%".format(cum_var[1] * 100))
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI generated code has performed EDA and PCA on the iris dataset, fetched using the built-in load\_iris function from scikit-learn, while the code I have written uses a CSV file to load the dataset.
     \item The AI code uses PCA to reduce the dataset to 2D and 3D visualizations, while my code applies PCA to reduce the dataset to 2 components and uses logistic regression for classification and comparison of performance with and without PCA.
 \end{itemize}
 \vspace{1em}
-
-\textbf{Results}
-
-\begin{lstlisting}[language=Python]
-  Basic Info:
-  <class 'pandas.core.frame.DataFrame'>
-  RangeIndex: 150 entries, 0 to 149
-  Data columns (total 5 columns):
-  #   Column             Non-Null Count  Dtype  
-  ---  ------             --------------  -----  
-  0   sepal length (cm)  150 non-null    float64
-  1   sepal width (cm)   150 non-null    float64
-  2   petal length (cm)  150 non-null    float64
-  3   petal width (cm)   150 non-null    float64
-  4   species            150 non-null    int64  
-  dtypes: float64(4), int64(1)
-  memory usage: 6.0 KB
-  None 
-  
-  Descriptive Statistics:
-  sepal length (cm)  sepal width (cm)  petal length (cm)  \
-  count         150.000000        150.000000         150.000000   
-  mean            5.843333          3.057333           3.758000   
-  std             0.828066          0.435866           1.765298   
-  min             4.300000          2.000000           1.000000   
-  25%             5.100000          2.800000           1.600000   
-  50%             5.800000          3.000000           4.350000   
-  75%             6.400000          3.300000           5.100000   
-  max             7.900000          4.400000           6.900000   
-  ...
-  1    50
-  2    50
-  Name: count, dtype: int64 
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_24.png}
-\end{center}
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_25.png}
-\end{center}
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_26.png}
-\end{center}
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_27.png}
-\end{center}
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_28.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-PCA Explained Variance Ratios:
-  PC1: 0.7296
-  PC2: 0.2285
-  PC3: 0.0367
-  PC4: 0.0052
-
-Cumulative Variance (first 2 PCs): 95.81%
-\end{lstlisting}
-
-\textbf{Verified By}
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 4}
+\textbf{\underline{Experiment 4}}
 \label{exp4}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Implement a method to compute the Euclidean distance between two grayscale images.\par
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Implement a method to compute the Euclidean distance between two grayscale images.\par
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To understand the concept of Euclidean distance and implement a method to compute it between two grayscale images, demonstrating the application of this metric in image processing.
 
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import cupy as cp
 import cv2
@@ -1273,10 +1196,9 @@ Euclidean distance between images: 82911.17
 
 
 \vspace{1em}
-\textbf{AI-Generated}
-
-
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 from PIL import Image
 import numpy as np
@@ -1325,49 +1247,43 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The code I have written uses GPU acceleration with CuPy and opencv for image processing and distance computation whereas the AI provided code uses CPU-based libraries like NumPy and PIL.
     \item The AI provided code included explicit image resizing and grayscale conversion for preprocessing.
 \end{itemize}
 \vspace{1em}
-
-\textbf{Results}
-
-\begin{lstlisting}[language=Python]
-Euclidean distance between the images: 33177.28
-\end{lstlisting}
-
-\textbf{Verified By}
-
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 5}
+\textbf{\underline{Experiment 5}}
 \label{exp5}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Apply Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) on MNIST dataset. Compare the performance of PCA vs. LDA for classifying handwritten digits (MNIST dataset).\par
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Apply Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) on MNIST dataset. Compare the performance of PCA vs. LDA for classifying handwritten digits (MNIST dataset).\par
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To understand the differences between PCA and LDA in terms of dimensionality reduction and classification performance on the MNIST dataset, and to implement both techniques to compare their effectiveness in classifying handwritten digits.
 \vspace{1em}
 
-\textbf{Program Code}
+\textbf{\underline{Program Code}}
 
 \begin{lstlisting}[language=Python]
 import pandas as pd
@@ -1638,8 +1554,9 @@ sns.heatmap(confusion_matrix_02, annot=True, fmt="d", cmap="Blues")
 \end{center}
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 import matplotlib.pyplot as plt
@@ -1721,113 +1638,49 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 \end{lstlisting}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI generated code has performed PCA and LDA on the MNIST dataset, fetched using the built-in fetch\_openml function from scikit-learn, while the code I have written uses a CSV file to load the dataset.
     \item Both codes apply PCA to reduce the dataset to 50 components and LDA to reduce the dataset to 9 components, but the AI code uses KNN with 3 neighbors for classification while my code uses KNN with 5 neighbors.
     \item The AI code includes a visualization of the cumulative explained variance for PCA and a 2D visualization of LDA components, while my code focuses on classification performance and confusion matrices.
 \end{itemize}
-
-\textbf{Results}
-
-\begin{lstlisting}[language=Python]
-Loading MNIST dataset...
-Splitting dataset...
-Applying PCA...
-Applying LDA for classification...
-Training KNN on PCA...
-Training KNN on LDA...
-
---- Results ---
-PCA Accuracy: 0.9772
-LDA Accuracy: 0.9109
-
-Classification Report (PCA):
-              precision    recall  f1-score   support
-
-           0       0.98      1.00      0.99      1343
-           1       0.98      0.99      0.99      1600
-           2       0.97      0.97      0.97      1380
-           3       0.97      0.96      0.97      1433
-           4       0.97      0.98      0.98      1295
-           5       0.98      0.97      0.97      1273
-           6       0.99      0.99      0.99      1396
-           7       0.98      0.98      0.98      1503
-           8       0.99      0.96      0.97      1357
-           9       0.97      0.97      0.97      1420
-
-    accuracy                           0.98     14000
-   macro avg       0.98      0.98      0.98     14000
-weighted avg       0.98      0.98      0.98     14000
-
-
-Classification Report (LDA):
-              precision    recall  f1-score   support
-
-           0       0.94      0.97      0.96      1343
-           1       0.92      0.98      0.95      1600
-           2       0.89      0.91      0.90      1380
-           3       0.89      0.87      0.88      1433
-           4       0.89      0.92      0.91      1295
-           5       0.87      0.87      0.87      1273
-           6       0.96      0.95      0.95      1396
-           7       0.95      0.92      0.93      1503
-           8       0.89      0.82      0.85      1357
-           9       0.90      0.89      0.90      1420
-
-    accuracy                           0.91     14000
-   macro avg       0.91      0.91      0.91     14000
-weighted avg       0.91      0.91      0.91     14000
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.6\textwidth]{output_II_38.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-  Visualizing LDA in 2D...
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.6\textwidth]{output_II_39.png}
-\end{center}
-
-\textbf{Verified By}
-
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 6}
+\textbf{\underline{Experiment 6}}
 \label{exp6}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Load an image dataset (eg: Iris dataset). Compute the following distances between sample points.
-  \begin{itemize}
-    \item Hamming Distance
-    \item Euclidean Distance
-    \item Manhattan (City Block) Distance
-  \end{itemize}
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Load an image dataset (eg: Iris dataset). Compute the following distances between sample points.
+\begin{itemize}
+  \item Hamming Distance
+  \item Euclidean Distance
+  \item Manhattan (City Block) Distance
+\end{itemize}
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To understand and implement different distance metrics (Hamming, Euclidean, and Manhattan) on a dataset, specifically the Iris dataset, to analyze the relationships between sample points.
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import cv2
 import numpy as np
@@ -1928,8 +1781,9 @@ Cityblock Distance between Versicolor and Virginica:  2562420
 \end{lstlisting}
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 import matplotlib.pyplot as plt
@@ -1974,70 +1828,45 @@ plt.show()
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI-generated code uses the `load\_digits` function from scikit-learn to load a sample image dataset, while my code uses images from the Iris dataset.
     \item The AI code computes distances between pairs of images using Euclidean, Manhattan, and Hamming metrics, similar to my code.
     \item The AI code uses `combinations` from the `itertools` module to compute distances between all pairs of selected samples, while my code computes distances between three specific images from the Iris dataset.
 \end{itemize}
 \vspace{1em}
-
-\textbf{Results}
-
-\begin{lstlisting}[language=Python]
-Distance Metrics Between Sample Images:
-
-Image 0 vs Image 1:
-  Euclidean Distance : 59.5567
-  Manhattan Distance : 335.0000
-  Hamming Distance   : 0.2969
-
-Image 0 vs Image 2:
-  Euclidean Distance : 54.1295
-  Manhattan Distance : 306.0000
-  Hamming Distance   : 0.2969
-
-Image 1 vs Image 2:
-  Euclidean Distance : 41.6293
-  Manhattan Distance : 205.0000
-  Hamming Distance   : 0.1250
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.7\textwidth]{output_II_41.png}
-\end{center}
-
-
-\textbf{Verified By}
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 7}
+\textbf{\underline{Experiment 7}}
 \label{exp7}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Perform union, intersection, and complement operations on two fuzzy sets. Visualize the fuzzy sets and their operations. Implement De Morgans law on Fuzzy sets.
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Perform union, intersection, and complement operations on two fuzzy sets. Visualize the fuzzy sets and their operations. Implement De Morgans law on Fuzzy sets.
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
 To understand and implement fuzzy set operations such as union, intersection, and complement, and to visualize these operations. Additionally, to apply De Morgan's law on fuzzy sets.
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
 import matplotlib.pyplot as plt
 import random
@@ -2095,15 +1924,15 @@ plt.show()
 
 
 \begin{lstlisting}[language=Python]
-  intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
-  plt.figure(figsize=(8,5))
-  plt.plot(intersection_x, intersection_y, 'm', label='Intersection of A and B')
-  plt.title('Intersection of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.show()
+intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
+plt.figure(figsize=(8,5))
+plt.plot(intersection_x, intersection_y, 'm', label='Intersection of A and B')
+plt.title('Intersection of Membership functions A and B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
+plt.show()
 \end{lstlisting}
 
 \begin{center}
@@ -2174,24 +2003,24 @@ plt.grid()
 \end{center}
 
 \begin{lstlisting}[language=Python]
-  union_x, union_y = fuzzy.fuzzy_or(set_a, m_a, set_b, m_b)
-  complement_x = fuzzy.fuzzy_not(union_y)
-  
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(union_x, union_y, 'r', label='Union of A and B')
-  plt.title('Membership Function of Union of A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(union_x, complement_x, 'b', label='Complement of Union')
-  plt.title('Complement of Union of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
+union_x, union_y = fuzzy.fuzzy_or(set_a, m_a, set_b, m_b)
+complement_x = fuzzy.fuzzy_not(union_y)
+
+plt.subplots(1, 2, figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(union_x, union_y, 'r', label='Union of A and B')
+plt.title('Membership Function of Union of A and B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
+plt.subplot(1, 2, 2)
+plt.plot(union_x, complement_x, 'b', label='Complement of Union')
+plt.title('Complement of Union of Membership functions A and B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
 \end{lstlisting}
 
 \begin{center}
@@ -2241,21 +2070,21 @@ plt.show()
 \end{equation*}
 
 \begin{lstlisting}[language=Python]
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(set_a, m_a, 'r', label='Set A')
-  plt.title('Membership Function of Set A')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(set_b, m_b, 'b', label='Set B')
-  plt.title('Membership Function of Set B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
+plt.subplots(1, 2, figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(set_a, m_a, 'r', label='Set A')
+plt.title('Membership Function of Set A')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
+plt.subplot(1, 2, 2)
+plt.plot(set_b, m_b, 'b', label='Set B')
+plt.title('Membership Function of Set B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
 \end{lstlisting}
 
 \begin{center}
@@ -2263,24 +2092,24 @@ plt.show()
 \end{center}
 
 \begin{lstlisting}[language=Python]
-  intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
-  complement_x = fuzzy.fuzzy_not(intersection_y)
-  
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(intersection_x, intersection_y, 'r', label='Intersection of A and B')
-  plt.title('Membership Function of Intersection of A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(union_x, complement_x, 'b', label='Complement of Intersection')
-  plt.title('Complement of Intersection of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
+intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
+complement_x = fuzzy.fuzzy_not(intersection_y)
+
+plt.subplots(1, 2, figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(intersection_x, intersection_y, 'r', label='Intersection of A and B')
+plt.title('Membership Function of Intersection of A and B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
+plt.subplot(1, 2, 2)
+plt.plot(union_x, complement_x, 'b', label='Complement of Intersection')
+plt.title('Complement of Intersection of Membership functions A and B')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
 \end{lstlisting}
 
 \begin{center}
@@ -2324,8 +2153,9 @@ plt.show()
 
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 import matplotlib.pyplot as plt
@@ -2398,429 +2228,649 @@ plt.show()
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
     \item The AI-generated code uses NumPy and Matplotlib to define and visualize fuzzy sets, while my code uses the skfuzzy library for fuzzy operations.
     \item The AI code visualizes the fuzzy sets and their operations in a single figure with multiple subplots, while my code visualizes each operation in separate figures.
 \end{itemize}
 \vspace{1em}
-
-\textbf{Results}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_53.png}
-\end{center}
-
-
-\textbf{Verified By}
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 
 \newpage
 
-\section*{Cycle II}
+\section*{\underline{Cycle II}}
 \begin{center}
-\textbf{Experiment 8}
+\textbf{\underline{Experiment 8}}
 \label{exp8}
 \end{center}
 
 \vspace{1em}
-
-\raggedright{
-  \textbf{Problem}\par
-  \noindent
-  Perform union, intersection, and complement operations on two fuzzy sets. Visualize the fuzzy sets and their operations. Implement De Morgans law on Fuzzy sets.
-}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Write a Python program to plot Triangular, Trapezoidal, and Bell-shaped membership functions using NumPy and Matplotlib
 
 
 \vspace{1em}
-
-\textbf{Aim and Objectives}
-
-To understand and implement fuzzy set operations such as union, intersection, and complement, and to visualize these operations. Additionally, to apply De Morgan's law on fuzzy sets.
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
+To understand the different types of membership functions in fuzzy logic, specifically Triangular, Trapezoidal, and Bell-shaped membership functions, and to visualize them using NumPy and Matplotlib.
 \vspace{1em}
-
-\textbf{Program Code}
-
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
 \begin{lstlisting}[language=Python]
-import matplotlib.pyplot as plt
-import random
 import numpy as np
-import skfuzzy as fuzzy
+import matplotlib.pyplot as plt
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-set_a = np.linspace(0.1, 1, 100)
-set_b = np.linspace(0, 1, 100)
+set_a = np.linspace(0, 10, 5)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-m_a = fuzzy.membership.trimf(set_a, [0, 0.5, 1])
-m_b = fuzzy.membership.trimf(set_b, [0, 0.8, 1])
+set_a
+\end{lstlisting}
+\begin{lstlisting}[language=Python]
+array([ 0. ,  2.5,  5. ,  7.5, 10. ])
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-plt.subplots(1, 2, figsize=(12, 5))
-plt.subplot(1, 2, 1)
-plt.plot(set_a, m_a, 'r', label='Set A')
-plt.title('Membership Function of Set A')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.subplot(1, 2, 2)
-plt.plot(set_b, m_b, 'b', label='Set B')
-plt.title('Membership Function of Set B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
+Triangular Membership Function
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Triangular Membership Function
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+y = [0.1, 0.5, 0.9, 0.5, 0.1]
+plt.plot(set_a, y, 'r', label = 'Fuzzy Set A')
 \end{lstlisting}
 
 \begin{center}
-  \includegraphics[width=1\textwidth]{output_II_42.png}
+  \includegraphics[width=0.65\textwidth]{output_II_54.png}
 \end{center}
 
 \begin{lstlisting}[language=Python]
-union_x, union_y = fuzzy.fuzzy_or(set_a, m_a, set_b, m_b)
-plt.figure(figsize=(8,5))
-plt.plot(union_x, union_y, 'g', label='Union of A and B')
-plt.title('Union of Membership functions A and B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.show()
+Trapezoidal Membership Function
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+y = [0.1, 0.5, 0.5, 0.5, 0.1]
+plt.plot(set_a, y, 'b', label = 'Fuzzy Set B')
 \end{lstlisting}
 
 \begin{center}
-  \includegraphics[width=0.65\textwidth]{output_II_43.png}
+  \includegraphics[width=0.65\textwidth]{output_II_55.png}
 \end{center}
 
 
 \begin{lstlisting}[language=Python]
-  intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
-  plt.figure(figsize=(8,5))
-  plt.plot(intersection_x, intersection_y, 'm', label='Intersection of A and B')
-  plt.title('Intersection of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.show()
+Bell-shaped Membership Function
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+set_a = np.linspace(0, 10, 100)
+
+width = 2
+slope = 2.5
+center = 5
+
+m_a = 1 / (1 + np.abs((set_a - center) / width) ** slope)
+
+plt.plot(set_a, m_a, 'g', label = 'Bell-shaped Membership Function')
+plt.xlabel('Universe of Discourse')
+plt.ylabel('Membership Degree')
 \end{lstlisting}
 
 \begin{center}
-  \includegraphics[width=0.65\textwidth]{output_II_44.png}
+  \includegraphics[width=0.65\textwidth]{output_II_56.png}
 \end{center}
-
-\begin{lstlisting}[language=Python]
-complement_x= fuzzy.fuzzy_not(m_a)
-plt.figure(figsize=(8,5))
-plt.plot(set_a, complement_x, 'c', label='Complement of A')
-plt.title('Complement of Membership function A')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.show()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.65\textwidth]{output_II_45.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-complement_y = fuzzy.fuzzy_not(m_b)
-plt.figure(figsize=(8,5))
-plt.plot(set_b, complement_y, 'y', label='Complement of B')
-plt.title('Complement of Membership function B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.show()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=0.65\textwidth]{output_II_46.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-Verifying De Morgan's law using the two fuzzy sets
-\end{lstlisting}
-
-\begin{equation*}
-\text{De Morgan's first law states that:}
-(A \cup B)' = A' \cap B'
-\end{equation*}
-
-\begin{lstlisting}[language=Python]
-plt.subplots(1, 2, figsize=(12, 5))
-plt.subplot(1, 2, 1)
-plt.plot(set_a, m_a, 'r', label='Set A')
-plt.title('Membership Function of Set A')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.subplot(1, 2, 2)
-plt.plot(set_b, m_b, 'b', label='Set B')
-plt.title('Membership Function of Set B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_47.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-  union_x, union_y = fuzzy.fuzzy_or(set_a, m_a, set_b, m_b)
-  complement_x = fuzzy.fuzzy_not(union_y)
-  
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(union_x, union_y, 'r', label='Union of A and B')
-  plt.title('Membership Function of Union of A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(union_x, complement_x, 'b', label='Complement of Union')
-  plt.title('Complement of Union of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_48.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-complement_x = fuzzy.fuzzy_not(m_a)
-complement_y = fuzzy.fuzzy_not(m_b)
-
-union_x, union_y = fuzzy.fuzzy_and(set_a, complement_x, set_b, complement_y)
-
-plt.subplots(1, 3, figsize=(18, 5))
-plt.subplot(1, 3, 1)
-plt.plot(set_a, complement_x, 'r', label='Complement of A')
-plt.title('Membership Function of Complement of A')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-
-plt.subplot(1, 3, 2)
-plt.plot(set_b, complement_y, 'b', label='Complement of B')
-plt.title('Membership Function of Complement of B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-
-plt.subplot(1, 3, 3)
-plt.plot(union_x, union_y, 'g', label='Intersect of Complements of A and B')
-plt.title('Intersect of Membership functions of Complements of A and B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.show()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_49.png}
-\end{center}
-
-\begin{equation*}
-\text{De Morgan's second law states that:}
-(A \cap B)' = A' \cup B'
-\end{equation*}
-
-\begin{lstlisting}[language=Python]
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(set_a, m_a, 'r', label='Set A')
-  plt.title('Membership Function of Set A')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(set_b, m_b, 'b', label='Set B')
-  plt.title('Membership Function of Set B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_50.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-  intersection_x, intersection_y = fuzzy.fuzzy_and(set_a, m_a, set_b, m_b)
-  complement_x = fuzzy.fuzzy_not(intersection_y)
-  
-  plt.subplots(1, 2, figsize=(12, 5))
-  plt.subplot(1, 2, 1)
-  plt.plot(intersection_x, intersection_y, 'r', label='Intersection of A and B')
-  plt.title('Membership Function of Intersection of A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-  plt.subplot(1, 2, 2)
-  plt.plot(union_x, complement_x, 'b', label='Complement of Intersection')
-  plt.title('Complement of Intersection of Membership functions A and B')
-  plt.xlabel('Universe of Discourse')
-  plt.ylabel('Membership Degree')
-  plt.legend()
-  plt.grid()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_51.png}
-\end{center}
-
-\begin{lstlisting}[language=Python]
-complement_x = fuzzy.fuzzy_not(m_a)
-complement_y = fuzzy.fuzzy_not(m_b)
-union_x, union_y = fuzzy.fuzzy_or(set_a, complement_x, set_b, complement_y)
-plt.subplots(1, 3, figsize=(18, 5))
-plt.subplot(1, 3, 1)
-plt.plot(set_a, complement_x, 'r', label='Complement of A')
-plt.title('Membership Function of Complement of A')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.subplot(1, 3, 2)
-plt.plot(set_b, complement_y, 'b', label='Complement of B')
-plt.title('Membership Function of Complement of B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.subplot(1, 3, 3)
-plt.plot(union_x, union_y, 'g', label='Union of Complements of A and B')
-plt.title('Union of Membership functions of Complements of A and B')
-plt.xlabel('Universe of Discourse')
-plt.ylabel('Membership Degree')
-plt.legend()
-plt.grid()
-plt.show()
-\end{lstlisting}
-
-\begin{center}
-  \includegraphics[width=1\textwidth]{output_II_52.png}
-\end{center}
-
-
 
 
 \vspace{1em}
-\textbf{AI-Generated}
-
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
 \begin{lstlisting}[language=Python]
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Define the universe of discourse
-x = np.linspace(0, 10, 100)
+# --- Membership Functions ---
 
-# Define two fuzzy sets A and B (membership functions)
-A = np.maximum(0, 1 - abs(x - 3)/2)  # Triangle centered at 3
-B = np.maximum(0, 1 - abs(x - 7)/2)  # Triangle centered at 7
+def triangular(x, a, b, c):
+    """Triangular membership function with feet at a and c, peak at b."""
+    return np.maximum(np.minimum((x - a) / (b - a), (c - x) / (c - b)), 0)
 
-# Fuzzy set operations
-union = np.maximum(A, B)
-intersection = np.minimum(A, B)
-complement_A = 1 - A
-complement_B = 1 - B
+def trapezoidal(x, a, b, c, d):
+    """Trapezoidal membership function with slopes from a to b and c to d."""
+    return np.maximum(np.minimum(np.minimum((x - a)/(b - a), 1), (d - x)/(d - c)), 0)
 
-# De Morgan's Laws
-de\_morgan\_1 = 1 - union
-de\_morgan\_1\_rhs = np.minimum(complement\_A, complement\_B)
+def bell_shaped(x, a, b, c):
+    """Generalized bell-shaped membership function centered at c."""
+    return 1 / (1 + np.abs((x - c) / a) ** (2 * b))
 
-de\_morgan\_2 = 1 - intersection         
-de\_morgan\_2\_rhs = np.maximum(complement\_A, complement\_B)
+# --- Universe of Discourse ---
+x = np.linspace(0, 10, 500)
 
-# --- Visualization ---
+# --- Membership Function Values ---
+tri_y = triangular(x, 2, 5, 8)
+trap_y = trapezoidal(x, 2, 4, 6, 8)
+bell_y = bell_shaped(x, a=1, b=4, c=5)
 
-fig, axs = plt.subplots(3, 2, figsize=(12, 10))
-fig.suptitle("Fuzzy Set Operations and De Morgan's Laws", fontsize=16)
+# --- Plotting ---
+plt.figure(figsize=(10, 6))
 
-# Plot original sets
-axs[0, 0].plot(x, A, label='A', color='blue')
-axs[0, 0].plot(x, B, label='B', color='red')
-axs[0, 0].set_title("Original Fuzzy Sets")
-axs[0, 0].legend()
-axs[0, 0].grid()
+plt.plot(x, tri_y, label="Triangular (a=2, b=5, c=8)", color='blue')
+plt.plot(x, trap_y, label="Trapezoidal (a=2, b=4, c=6, d=8)", color='green')
+plt.plot(x, bell_y, label="Bell-shaped (a=1, b=4, c=5)", color='red')
 
-# Union and Intersection
-axs[0, 1].plot(x, union, label='A union B', color='purple')
-axs[0, 1].plot(x, intersection, label='A intersection B', color='green')
-axs[0, 1].set_title("Union and Intersection")
-axs[0, 1].legend()
-axs[0, 1].grid()
-
-# Complements
-axs[1, 0].plot(x, complement_A, label="A'", color='blue', linestyle='--')
-axs[1, 0].plot(x, complement_B, label="B'", color='red', linestyle='--')
-axs[1, 0].set_title("Complements of A and B")
-axs[1, 0].legend()
-axs[1, 0].grid()
-
-# De Morgan's Law 1
-axs[1, 1].plot(x, de_morgan_1, label="(A union B)'", color='orange')
-axs[1, 1].plot(x, de_morgan_1_rhs, label="A' intersection B'", color='green', linestyle='--')
-axs[1, 1].set_title("De Morgan's Law 1")
-axs[1, 1].legend()
-axs[1, 1].grid()
-
-# De Morgan's Law 2
-axs[2, 0].plot(x, de_morgan_2, label="(A intersection B)'", color='orange')
-axs[2, 0].plot(x, de_morgan_2_rhs, label="A' union B'", color='purple', linestyle='--')
-axs[2, 0].set_title("De Morgan's Law 2")
-axs[2, 0].legend()
-axs[2, 0].grid()
-
-# Hide unused subplot
-axs[2, 1].axis('off')
-
-plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.title("Triangular, Trapezoidal, and Bell-Shaped Membership Functions")
+plt.xlabel("x")
+plt.ylabel("Membership Degree")
+plt.ylim(-0.1, 1.1)
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
 plt.show()
+
 \end{lstlisting}
 
 \vspace{1em}
-
-\textbf{Comments on comparisons}
-
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
 \begin{itemize}
-    \item The AI-generated code uses NumPy and Matplotlib to define and visualize fuzzy sets, while my code uses the skfuzzy library for fuzzy operations.
-    \item The AI code visualizes the fuzzy sets and their operations in a single figure with multiple subplots, while my code visualizes each operation in separate figures.
+    \item The AI-generated code defines functions for triangular, trapezoidal, and bell-shaped membership functions, while my code directly plots the membership functions without defining separate functions.
+    \item The AI code uses a more generalized approach to define the parameters of the membership functions, allowing for easy adjustments, while my code uses fixed parameters.
+    \item Both codes use NumPy and Matplotlib for calculations and plotting.
 \end{itemize}
 \vspace{1em}
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
-\textbf{Results}
+\newpage
 
+\section*{\underline{Cycle II}}
 \begin{center}
-  \includegraphics[width=1\textwidth]{output_II_53.png}
+\textbf{\underline{Experiment 9}}
+\label{exp9}
 \end{center}
 
+\vspace{1em}
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Write a python program to fuzzify the input variable temperature using Triangular membership functions for Low, Medium, and High with Input temperature values [10, 20, 30, 40, 50].
 
-\textbf{Verified By}
 
+\vspace{1em}
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
+To fuzzify the input variable temperature using Triangular membership functions for Low, Medium, and High categories with specified input temperature values.
+\vspace{1em}
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
+\begin{lstlisting}[language=Python]
+import skfuzzy as fuzzy
+import numpy as np
+import matplotlib.pyplot as plt
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+temperature = np.array([10, 20, 30, 40, 50])
+temps = np.linspace(10, 50, 100)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+low = fuzzy.trimf(temps, [10, 10, 30])
+medium = fuzzy.trimf(temps, [20, 30, 40])
+high = fuzzy.trimf(temps, [30, 50, 50])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+plt.figure(figsize=(10, 5))
+plt.plot(temps, low, label='Low', color='blue')
+plt.plot(temps, medium, label='Medium', color='green')
+plt.plot(temps, high, label='High', color='red')
+plt.title('Fuzzy Membership Functions for Temperature')
+plt.xlabel('Temperature (C)')
+plt.ylabel('Membership Degree')
+plt.legend()
+plt.grid()
+plt.show()
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Python]
+for temp in temperature:
+    chance\_low = fuzzy.interp\_membership(temps, low, temp)
+    chance\_medium = fuzzy.interp\_membership(temps, medium, temp)
+    chance\_high = fuzzy.interp\_membership(temps, high, temp)
+
+    chances = {
+        'Low': chance_low,
+        'Medium': chance_medium,
+        'High': chance_high
+        }
+    
+    max\_chance = max(chances, key=chances.get)
+
+    print(f"Temperature {temp} C: is a {max\_chance}")
+\end{lstlisting}
+
+\vspace{1em}
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
+\begin{lstlisting}[language=Python]
+import numpy as np
+import skfuzzy as fuzz
+import matplotlib.pyplot as plt
+
+# Step 1: Define temperature universe
+temperature = np.array([10, 20, 30, 40, 50])
+
+# Step 2: Create a finer universe for smooth plotting and calculation
+x_temp = np.linspace(10, 50, 100)
+
+# Step 3: Define triangular membership functions
+low = fuzz.trimf(x_temp, [10, 10, 30])     # Peak at 10, falls off by 30
+medium = fuzz.trimf(x_temp, [20, 30, 40])  # Symmetric around 30
+high = fuzz.trimf(x_temp, [30, 50, 50])    # Rises from 30, peak at 50
+
+# Step 4: Fuzzify the input temperature values
+print("Fuzzified outputs:")
+for temp in temperature:
+    low_val = fuzz.interp_membership(x_temp, low, temp)
+    med_val = fuzz.interp_membership(x_temp, medium, temp)
+    high_val = fuzz.interp_membership(x_temp, high, temp)
+    print(f"Temperature: {temp} -> Low: {low_val:.2f}, Medium: {med_val:.2f}, High: {high_val:.2f}")
+
+# Step 5: Plotting the membership functions
+plt.figure(figsize=(10, 5))
+plt.plot(x_temp, low, label='Low', color='blue')
+plt.plot(x_temp, medium, label='Medium', color='green')
+plt.plot(x_temp, high, label='High', color='red')
+
+# Plot the input points on the curves
+for temp in temperature:
+    plt.axvline(temp, color='gray', linestyle='--', alpha=0.3)
+
+plt.title("Triangular Membership Functions for Temperature")
+plt.xlabel("Temperature")
+plt.ylabel("Membership Degree")
+plt.legend()
+plt.grid(True)
+plt.show()
+ 
+\end{lstlisting}
+
+\vspace{1em}
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
+\begin{itemize}
+  \item The AI-generated code uses the `skfuzzy` library to create triangular membership functions for Low, Medium, and High temperature categories, similar to my code.
+  \item Both codes define the temperature range and fuzzify the input variable using triangular membership functions.
+  \item The AI code uses `interp\_membership` to calculate the membership degree for each temperature value and displays the probabilities for a temperature to be in all three categories. 
+\end{itemize}
+\vspace{1em}
+\noindent
+\textbf{\underline{Results}}
+\noindent
+\begin{lstlisting}[language=Python]
+Temperature 10 C: is a Low
+Temperature 20 C: is a Low
+Temperature 30 C: is a Medium
+Temperature 40 C: is a High
+Temperature 50 C: is a High
+\end{lstlisting}
+
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{output_II_58.png}
+\end{center}
+
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
+
+
+\newpage
+
+\section*{\underline{Cycle II}}
+\begin{center}
+\textbf{\underline{Experiment 10}}
+\label{exp10}
+\end{center}
+
+\vspace{1em}
+
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Implement and compare defuzzification methods using the fuzzy output set. {10: 0.0, 20: 0.3, 30: 0.5, 40: 0.8, 50: 1.0, 60: 0.8, 70: 0.4, 80: 0.2}. Visualize the fuzzy output and highlight each defuzzified result on the plot.
+
+
+\vspace{1em}
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
+To understand and implement defuzzification methods using a given fuzzy output set, and to visualize the fuzzy output while highlighting each defuzzified result on the plot.
+\vspace{1em}
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
+\begin{lstlisting}[language=Python]
+import skfuzzy as fuzzy
+import matplotlib.pyplot as plt
+import numpy as np
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+x = np.arange(10, 90, 10)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+y = np.array([0.0, 0.3, 0.5, 0.8, 1.0, 0.8, 0.4, 0.2])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+We can defuzzify the above fuzzy set in 6 ways
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+1. Centroid of Area (centroid)
+2. Bisector of Area (bisector)
+3. Mean of Maximum (mom)
+4. Min of Maximum (som)
+5. Max of Maximum (lom)
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Python]
+methods = ['centroid', 'bisector', 'mom', 'som', 'lom']
+colors = ['r', 'g', 'b', 'c', 'm']
+
+plt.figure(figsize=(10, 6))
+for method, color in zip(methods, colors):
+  center = fuzzy.defuzz(x, y, method)
+  print(f"Defuzzification method: {method}, Center: {center:.2f}")
+  plt.plot(x, y, color=color, label=f'{method} ({center:.2f})')
+  plt.axvline(center, color=color, linestyle='--')
+plt.title('Fuzzy Defuzzification Methods')
+plt.xlabel('Input')
+plt.ylabel('Output')
+plt.legend()
+plt.grid()
+plt.show()
+\end{lstlisting}
+
+\vspace{1em}
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
+\begin{lstlisting}[language=Python]
+import numpy as np
+import matplotlib.pyplot as plt
+import skfuzzy as fuzz
+
+# Step 1: Define the fuzzy output set
+x = np.array([10, 20, 30, 40, 50, 60, 70, 80])
+membership = np.array([0.0, 0.3, 0.5, 0.8, 1.0, 0.8, 0.4, 0.2])
+
+# Step 2: Interpolate to a finer universe for better defuzzification
+x_fine = np.linspace(10, 80, 1000)
+membership_fine = np.interp(x_fine, x, membership)
+
+# Step 3: Apply defuzzification methods
+centroid = fuzz.defuzz(x_fine, membership_fine, 'centroid')
+bisector = fuzz.defuzz(x_fine, membership_fine, 'bisector')
+mom = fuzz.defuzz(x_fine, membership_fine, 'mom')
+som = fuzz.defuzz(x_fine, membership_fine, 'som')
+lom = fuzz.defuzz(x_fine, membership_fine, 'lom')
+
+# Step 4: Print results
+print("Defuzzification Results:")
+print(f"Centroid: {centroid:.2f}")
+print(f"Bisector: {bisector:.2f}")
+print(f"Mean of Maximum (MoM): {mom:.2f}")
+print(f"Smallest of Maximum (SoM): {som:.2f}")
+print(f"Largest of Maximum (LoM): {lom:.2f}")
+
+# Step 5: Visualization
+plt.figure(figsize=(12, 6))
+plt.plot(x, membership, 'bo', label='Fuzzy Output Points')
+plt.plot(x_fine, membership_fine, 'b-', alpha=0.6, label='Interpolated Fuzzy Set')
+
+# Plot defuzzified values
+plt.axvline(centroid, color='r', linestyle='--', label=f'Centroid: {centroid:.2f}')
+plt.axvline(bisector, color='g', linestyle='--', label=f'Bisector: {bisector:.2f}')
+plt.axvline(mom, color='purple', linestyle='--', label=f'MoM: {mom:.2f}')
+plt.axvline(som, color='orange', linestyle='--', label=f'SoM: {som:.2f}')
+plt.axvline(lom, color='brown', linestyle='--', label=f'LoM: {lom:.2f}')
+
+plt.title("Defuzzification of Fuzzy Output Set")
+plt.xlabel("Output Variable (e.g., Temperature)")
+plt.ylabel("Membership Degree")
+plt.grid(True)
+plt.legend()
+plt.show()
+
+\end{lstlisting}
+
+
+\vspace{1em}
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
+\begin{itemize}
+    \item The AI-generated code uses the `skfuzzy` library to implement defuzzification methods, similar to my code.
+    \item Both codes define a fuzzy output set and visualize the defuzzification methods on a plot.
+\end{itemize}
+\vspace{1em}
+\noindent
+\textbf{\underline{Results}}
+\noindent
+\begin{lstlisting}[language=Python]
+Defuzzification method: centroid, Center: 47.86
+Defuzzification method: bisector, Center: 48.48
+Defuzzification method: mom, Center: 50.00
+Defuzzification method: som, Center: 50.00
+Defuzzification method: lom, Center: 50.00
+\end{lstlisting}
+
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{output_II_59.png}
+\end{center}
+
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
+
+\newpage
+
+\section*{\underline{Cycle II}}
+\begin{center}
+\textbf{\underline{Experiment 11}}
+\label{exp11}
+\end{center}
+
+\vspace{1em}
+
+
+
+\noindent
+\textbf{\underline{Problem}}\par
+\noindent
+Implement a Python script to model a Markov Decision Process using a given transition matrix and reward function of 3 states and 2 actions. Calculate the value function for each state provided the policy for all states and actions are initialized as 0.5. Provide a sample MDP and demonstrate the corresponding value function (Set discount factor = 0.9).
+
+
+\vspace{1em}
+
+\noindent
+\textbf{\underline{Aim and Objectives}}\par
+\noindent
+To understand and implement Markov Decision Processes (MDPs) using a transition matrix and reward function, and to calculate the value function for each state given a policy initialized as 0.5.
+
+
+\vspace{1em}
+
+\noindent
+\textbf{\underline{Program Code}}
+\noindent
+
+\begin{lstlisting}[language=Python]
+import matplotlib.pyplot as plt
+import numpy as np
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+states = [0, 1, 2]
+actions = [0, 1]
+discount_factor = 0.9
+
+policy = {0: {0: 0.5, 1: 0.5},
+          1: {0: 0.5, 1: 0.5},
+          2: {0: 0.5, 1: 0.5}}
+
+transitions = {
+    0: {
+        0: [(0.6, 0, 5)],
+        1: [(0.4, 2, 10)]
+    },
+    1: {
+        0: [(0.5, 1, 3)],
+        1: [(0.5, 2, 4)]
+    },
+    2: {
+        0: [(0.7, 0, -5)],
+        1: [(0.3, 1, 2)]
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+def policy_evaluation(states, actions, policy, transitions, discount_factor, theta=1e-6):
+    V = {s: 0.0 for s in states}
+    while True:
+        delta = 0
+        for s in states:
+            v = 0
+            for a in actions:
+                action_prob = policy[s][a]
+                for (prob, next_state, reward) in transitions[s][a]:
+                    v += action_prob * prob * (reward + discount_factor * V[next_state])
+            delta = max(delta, abs(v - V[s]))
+            V[s] = v
+        if delta < theta:
+            break
+    return V
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+v = policy_evaluation(states, actions, policy, transitions, discount_factor)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+print("The value function for each state is:")
+for state in states:
+    print(f"State {state}: {v[state]:.2f}") 
+\end{lstlisting}
+
+
+\vspace{1em}
+\noindent
+\textbf{\underline{AI-Generated}}
+\noindent
+\begin{lstlisting}[language=Python]
+num_states = 3
+num_actions = 2
+gamma = 0.9  # Discount factor
+
+T = np.array([
+    [[0.8, 0.2, 0.0], [0.1, 0.6, 0.3]],  # Transitions from state 0
+    [[0.0, 0.9, 0.1], [0.4, 0.0, 0.6]],  # Transitions from state 1
+    [[0.2, 0.4, 0.4], [0.3, 0.3, 0.4]]   # Transitions from state 2
+])
+
+R = np.array([
+    [5, 10],    # Rewards for actions in state 0
+    [-1, 2],    # Rewards for actions in state 1
+    [0, 4]      # Rewards for actions in state 2
+])
+
+policy = np.full((num_states, num_actions), 0.5)
+
+V = np.zeros(num_states)
+
+def evaluate_policy(policy, T, R, gamma, theta=1e-6):
+    V = np.zeros(num_states)
+    while True:
+        delta = 0
+        for s in range(num_states):
+            v = 0
+            for a in range(num\actions):
+                action_prob = policy[s][a]
+                reward = R[s][a]
+                transition_probs = T[s][a]
+                v += action_prob * (reward + gamma * np.dot(transition_probs, V))
+            delta = max(delta, abs(v - V[s]))
+            V[s] = v
+        if delta < theta:
+            break
+    return V
+
+V = evaluate_policy(policy, T, R, gamma)
+
+for s in range(num_states):
+    print(f"Value of state {s}: {V[s]:.4f}")
+\end{lstlisting}
+
+
+\vspace{1em}
+\noindent
+\textbf{\underline{Comments on comparisons}}
+\noindent
+\begin{itemize}
+    \item The AI-generated code uses NumPy to define the transition matrix and reward function, similar to my code.
+    \item Both codes implement a policy evaluation function to calculate the value function for each state.
+    \item The AI code structures the transition matrix and reward function in a more compact way, while my code uses dictionaries for better readability.
+\end{itemize}
+\vspace{1em}
+\noindent
+\textbf{\underline{Results}}
+\noindent
+\begin{lstlisting}[language=Python]
+The value function for each state is:
+State 0: 4.90
+State 1: 2.38
+State 2: 0.41
+\end{lstlisting}
+
+\vfill
+\noindent
+\textbf{\underline{Verified By}}
+\noindent
+\vspace{3em}
 
 
 \end{document}
